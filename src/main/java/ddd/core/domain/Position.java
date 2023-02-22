@@ -12,6 +12,7 @@ public class Position extends Entity {
 
     public Position(Coordinate coordinate) {
         super(coordinate);
+        this.coordinate = coordinate;
     }
 
     public Position(Coordinate coordinate, Piece piece) {

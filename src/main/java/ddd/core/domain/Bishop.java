@@ -1,19 +1,17 @@
 package ddd.core.domain;
 
+import java.util.Map;
+
 public class Bishop extends Piece {
 
-    private static final String CHARACTER = "&#x2657;";
+    private static final Map<Color, String> CHARACTER = Map.of(Color.WHITE, "\u2657", Color.BLACK, "\u265D");
 
     public Bishop(Color color) {
-        super(color);
+        super(color, CHARACTER.get(color));
     }
 
     @Override
     public boolean validateMove(Position currentPosition, Position nextPosition) {
         return false;
-    }
-
-    public String getCharacter() {
-        return CHARACTER;
     }
 }

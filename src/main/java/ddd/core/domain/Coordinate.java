@@ -1,5 +1,8 @@
 package ddd.core.domain;
 
+import lombok.Getter;
+
+@Getter
 public class Coordinate implements AggregateIdentifier {
     private int x;
     private int y;

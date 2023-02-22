@@ -10,4 +10,8 @@ public abstract class Piece implements ValueObject {
 
     public abstract boolean validateMove(Position currentPosition, Position nextPosition);
     public abstract String getCharacter();
+
+    public Color getColor() {
+        return color;
+    }
 }

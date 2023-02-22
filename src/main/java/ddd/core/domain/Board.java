@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 public class Board extends Entity {
@@ -60,5 +61,20 @@ public class Board extends Entity {
                 positions.add(new Position(new Coordinate(i, j)));
             }
         }
+    }
+
+    public Optional<Position> getPositionByCoordinate(final Coordinate coordinate) {
+        return positions.stream().filter(position -> position.getCoordinate().equals(coordinate)).findFirst();
+    }
+
+    public void print(){
+        positions.forEach(position -> {
+            position.getPiece().ifPresent(piece -> System.out.println(piece.getCharacter()));
+        });
+    }
+
+    public static void main(String[] args) {
+        Board board = new Board(new GameId("gameId"));
+        board.print();
     }
 }

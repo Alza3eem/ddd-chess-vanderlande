@@ -2,6 +2,8 @@ package ddd.core.domain;
 
 import lombok.Getter;
 
+import java.util.Optional;
+
 @Getter
 public class Position extends Entity {
 
@@ -14,6 +16,18 @@ public class Position extends Entity {
 
     public Position(Coordinate coordinate, Piece piece) {
         super(coordinate);
+        this.piece = piece;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public Optional<Piece> getPiece() {
+        return Optional.ofNullable(piece);
+    }
+
+    public void setPiece(Piece piece) {
         this.piece = piece;
     }
 }

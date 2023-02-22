@@ -18,4 +18,27 @@ public class Player extends Entity <PlayerId>  {
         super(playerId);
         this.color = color;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (object.getClass().equals(Player.class)) {
+            Player other = (Player) object;
+            return this.playerId.equals(other.playerId) && this.color.equals(other.color);
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.playerId.getValue() + color.ordinal();
+    }
 }
